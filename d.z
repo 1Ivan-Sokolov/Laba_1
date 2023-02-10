@@ -1,0 +1,47 @@
+class Browser:
+    def __init__(self, version, platforms):
+        self.version = version
+        self.platforms = platforms
+
+    def search(self):
+        print('Поиск...')
+
+    def follow_the_link(self):
+        print('Переход по ссылке...')
+
+    def reboot(self):
+        print('Перезагрузка...')
+
+
+class Yandex(Browser):
+    def __init__(self, version, platforms, release_date):
+        super().__init__(version, platforms)
+        self.release_date = release_date
+
+    def reboot(self):
+        print('Перезагрузка сайта...')
+
+class Google(Browser):
+    def __init__(self, version=1, platforms=['Android']):
+        super().__init__(version, platforms)
+
+    def get_version_info(self):
+        print(f'Текущая версия - {self.version}')
+
+    def get_platforms_info(self):
+        print(f'Поддерживаемые платформы: {", ".join(self.platforms)}')
+
+
+if __name__ == '__main__':
+    default_browser = Browser(1, ['Android'])
+    yandex = Yandex(2.0, ['Android', 'IOS'], 2012)
+    google = Google()
+
+    default_browser.search()
+    default_browser.follow_the_link()
+    default_browser.reboot()
+
+    yandex.reboot()
+
+    google.get_version_info()
+    google.get_platforms_info()
