@@ -1,0 +1,19 @@
+class Brand:
+	def __init__(self, name, logo, tagline,  corporatefont):
+		self. __name=name
+		self. __logo=logo
+		self. __tagline=tagline
+		self. __corporatefont=corporatefont
+	def get(self, a):
+			ClassName=self.__class__.__name__
+			return getattr(self, f'_{ClassName}__{a}')
+	def set(self, atr, val):
+			ClassName = self. __class__.__name__
+			setattr(self,f'_{ClassName}__{atr}', val)
+			
+			
+if __name__ == '__main__':
+	br1 = Brand('Louis Vuitton', 'Logo', "LV", 1200)
+	print(br1.get('name'))
+	br1.set('name', 'Gucci')
+	print(br1.get('name'))
